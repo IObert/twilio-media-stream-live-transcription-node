@@ -17,7 +17,7 @@ const request = {
   config: {
     encoding: "MULAW",
     sampleRateHertz: 8000,
-    languageCode: "en-GB",
+    languageCode: "de-DE",
   },
   interimResults: true, // If you want interim results, set this to true
 };
@@ -67,7 +67,7 @@ wss.on("connection", function connection(ws) {
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/index.html")));
+app.get("/", (_, res) => res.sendFile(path.join(__dirname, "/index.html")));
 
 app.post("/", (req, res) => {
   res.set("Content-Type", "text/xml");
@@ -77,7 +77,7 @@ app.post("/", (req, res) => {
       <Start>
         <Stream url="wss://${req.headers.host}/"/>
       </Start>
-      <Say>I will stream the next 60 seconds of audio through your websocket</Say>
+      <Say language="de-DE" >Hallo. Ich werde die Tonspur für die nächsten 60 Sekunden an einen WebSocket weiterstreamen.</Say>
       <Pause length="60" />
     </Response>
   `);
