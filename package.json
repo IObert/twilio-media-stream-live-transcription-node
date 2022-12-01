@@ -12,8 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "GOOGLE_APPLICATION_CREDENTIALS=key.json node index.js"
   },
   "author": "Marius Obert",
   "license": "Apache-2.0"
